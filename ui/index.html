@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="data:,">
+    
+    <link rel="stylesheet" href="/static/style.css" />
+
+    <title>Auralyn AI</title>
+
+    
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <!-- =========================
+             SIDEBAR
+        ========================== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo">A</div>
+
+          <div class="brand-text">
+            <h1>Auralyn AI</h1>
+            <p>Voice Intelligence</p>
+          </div>
+        </div>
+
+        <button class="new-chat-btn">
+          <span>＋</span>
+          New Conversation
+        </button>
+
+        <nav class="sidebar-nav">
+          <button class="nav-item active">
+            <span class="nav-icon">◉</span>
+            Assistant
+          </button>
+
+          <button class="nav-item">
+            <span class="nav-icon">◷</span>
+            History
+          </button>
+
+          <button class="nav-item">
+            <span class="nav-icon">✦</span>
+            Tools
+          </button>
+
+          <button class="nav-item">
+            <span class="nav-icon">⚙</span>
+            Settings
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="system-card">
+            <div class="system-status-row">
+              <span class="status-dot"></span>
+
+              <div>
+                <strong>System Online</strong>
+                <p>AssemblyAI connected</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-card">
+            <div class="profile-avatar">P</div>
+
+            <div>
+              <strong>Pratik</strong>
+              <p>Auralyn Workspace</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+      <main class="main-content">
+        <!-- HEADER -->
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">REAL-TIME AI VOICE ASSISTANT</p>
+
+            <h2>Talk naturally with Auralyn</h2>
+          </div>
+
+          <div class="topbar-actions">
+            <div class="connection-pill">
+              <span class="connection-dot"></span>
+              Live
+            </div>
+
+            <button class="icon-button">⋯</button>
+          </div>
+        </header>
+
+        <!-- MAIN GRID -->
+        <section class="workspace">
+          <!-- =========================
+                     VOICE AREA
+                ========================== -->
+          <section class="voice-panel">
+            <div class="voice-background-glow"></div>
+
+            <div class="voice-content">
+              <div class="assistant-label">AURALYN</div>
+
+              <div class="orb-container">
+                <div class="orb-ring ring-one"></div>
+                <div class="orb-ring ring-two"></div>
+                <div class="orb-ring ring-three"></div>
+
+                <div class="voice-orb">
+                  <div class="orb-core"></div>
+                </div>
+              </div>
+
+              <div class="voice-state">
+                <div class="state-indicator">
+                  <span class="state-dot"></span>
+                  Listening
+                </div>
+
+                <h3>What can I help you with?</h3>
+
+                <p>
+                  Ask a question, check live information, or simply have a
+                  conversation.
+                </p>
+              </div>
+
+              <!-- WAVEFORM -->
+              <div class="waveform" id="waveform">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <!-- MIC -->
+              <div class="mic-area">
+                <button class="mic-button" id="micButton">
+                  <span class="mic-icon"> 🎙 </span>
+                </button>
+
+                <p>Tap to mute microphone</p>
+              </div>
+
+              <!-- QUICK PROMPTS -->
+              <div class="quick-prompts">
+                <button class="prompt-chip">☀ Weather</button>
+
+                <button class="prompt-chip">◷ World Time</button>
+
+                <button class="prompt-chip">◇ Latest News</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- =========================
+                     CONVERSATION PANEL
+                ========================== -->
+          <section class="conversation-panel">
+            <div class="conversation-header">
+              <div>
+                <p class="panel-label">CONVERSATION</p>
+
+                <h3>Live Transcript</h3>
+              </div>
+
+              <button class="clear-button">Clear</button>
+            </div>
+
+            <div class="messages" id="messages">
+              <!-- AURALYN MESSAGE -->
+              <div class="message assistant-message">
+                <div class="message-avatar">A</div>
+
+                <div class="message-content">
+                  <div class="message-meta">
+                    <strong>Auralyn</strong>
+                    <span>now</span>
+                  </div>
+
+                  <div class="message-bubble">
+                    Hello! I'm Auralyn, your AI voice assistant. What can I help
+                    you with today?
+                  </div>
+                </div>
+              </div>
+
+              <!-- USER MESSAGE -->
+              <div class="message user-message">
+                <div class="message-content">
+                  <div class="message-meta user-meta">
+                    <span>you</span>
+                    <strong>You</strong>
+                  </div>
+
+                  <div class="message-bubble">
+                    What's the weather today in Mumbai?
+                  </div>
+                </div>
+
+                <div class="message-avatar user-avatar">P</div>
+              </div>
+
+              <!-- TOOL ACTIVITY -->
+              <div class="tool-activity">
+                <div class="tool-icon">✦</div>
+
+                <div>
+                  <strong> Weather tool </strong>
+
+                  <p>Fetching live weather data for Mumbai</p>
+                </div>
+
+                <span class="tool-badge"> LIVE </span>
+              </div>
+
+              <!-- AURALYN RESPONSE -->
+              <div class="message assistant-message">
+                <div class="message-avatar">A</div>
+
+                <div class="message-content">
+                  <div class="message-meta">
+                    <strong>Auralyn</strong>
+                    <span>now</span>
+                  </div>
+
+                  <div class="message-bubble">
+                    It is currently 30°C in Mumbai and feels like 35°C, with a
+                    light breeze.
+                  </div>
+                </div>
+              </div>
+
+              <!-- NEWS SOURCE CARD EXAMPLE -->
+              <div class="source-card">
+                <div class="source-card-header">
+                  <div>
+                    <p class="source-label">SOURCE</p>
+
+                    <strong> Live information </strong>
+                  </div>
+
+                  <span> ↗ </span>
+                </div>
+
+                <p>
+                  Tool-powered responses use current external data when
+                  available.
+                </p>
+              </div>
+            </div>
+
+            <!-- BOTTOM STATUS -->
+            <div class="conversation-footer">
+              <div class="footer-status">
+                <span class="footer-dot"></span>
+
+                Microphone active
+              </div>
+
+              <div class="latency">Real-time session</div>
+            </div>
+          </section>
+        </section>
+
+        <!-- TOOL STRIP -->
+        <section class="tool-strip">
+          <div class="tool-strip-title">
+            <span class="tool-strip-icon"> ✦ </span>
+
+            Agent capabilities
+          </div>
+
+          <div class="tool-cards">
+            <div class="mini-tool-card">
+              <span class="mini-tool-icon"> ☀ </span>
+
+              <div>
+                <strong>Weather</strong>
+                <p>Live city conditions</p>
+              </div>
+            </div>
+
+            <div class="mini-tool-card">
+              <span class="mini-tool-icon"> ◷ </span>
+
+              <div>
+                <strong>World Time</strong>
+                <p>Local city time</p>
+              </div>
+            </div>
+
+            <div class="mini-tool-card">
+              <span class="mini-tool-icon"> ◇ </span>
+
+              <div>
+                <strong>Live News</strong>
+                <p>Source-aware headlines</p>
+              </div>
+            </div>
+
+            <div class="mini-tool-card">
+              <span class="mini-tool-icon"> ◎ </span>
+
+              <div>
+                <strong>Memory</strong>
+                <p>Conversation context</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
