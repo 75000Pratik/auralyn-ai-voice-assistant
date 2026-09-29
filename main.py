@@ -395,6 +395,7 @@ async def receive_messages(websocket, ready_event):
                 pending_tools.append(
                     {
                         "call_id": event["call_id"],
+                        "name": tool_name,
                         "result": result
                     }
                 )
@@ -474,6 +475,15 @@ async def receive_messages(websocket, ready_event):
                                     )
                                 }
                             )
+                        )
+
+                        await send_ui_event(
+                            {
+                                "type": "tool_result",
+                                "name": tool["name"],
+                                "result": tool["result"],
+                                "source": "voice"
+                            }
                         )
 
                         print(
@@ -619,7 +629,8 @@ async def receive_ui_commands(assembly_ws):
                     {
                         "type": "tool_result",
                         "name": "get_weather",
-                        "result": result
+                        "result": result,
+                        "source": "quick_action"
                     }
                 )
 
@@ -647,7 +658,8 @@ async def receive_ui_commands(assembly_ws):
                     {
                         "type": "tool_result",
                         "name": "get_current_time",
-                        "result": result
+                        "result": result,
+                        "source": "quick_action"
                     }
                 )
 
@@ -675,7 +687,8 @@ async def receive_ui_commands(assembly_ws):
                     {
                         "type": "tool_result",
                         "name": "get_latest_news",
-                        "result": result
+                        "result": result,
+                        "source": "quick_action"
                     }
                 )
 

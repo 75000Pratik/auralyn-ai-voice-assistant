@@ -91,6 +91,10 @@ backendSocket.addEventListener("message", (event) => {
         if (badge) {
             badge.textContent = "DONE";
         }
+
+        if (data.source === "voice") {
+            return;
+        }
     }
 
         if (
